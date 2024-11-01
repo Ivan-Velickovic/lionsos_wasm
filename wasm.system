@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright 2023, Colias Group, LLC
+
+     SPDX-License-Identifier: BSD-2-Clause
+-->
+<system>
+    <memory_region name="wasm_data" size="0x400_000" />
+
+    <protection_domain name="interpreter" priority="254">
+        <program_image path="wasmi-interpreter.elf" />
+        <map mr="wasm_data" vaddr="0x1_000_000" perms="r" setvar_vaddr="wasm_data" />
+    </protection_domain>
+    <protection_domain name="loader" priority="253">
+        <program_image path="client-loader.elf" />
+        <map mr="wasm_data" vaddr="0x1_000_000" perms="rw" setvar_vaddr="wasm_data" />
+    </protection_domain>
+
+    <channel>
+        <end pd="interpreter" id="0" />
+        <end pd="loader" id="0" />
+    </channel>
+</system>

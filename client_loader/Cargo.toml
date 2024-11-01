@@ -1,0 +1,11 @@
+[package]
+name = "client-loader"
+version = "0.1.0"
+edition = "2021"
+license = "BSD-2-Clause"
+
+[dependencies]
+wasmi-interpreter = { path = "../wasmi_interpreter" }
+wasmi = { version = "0.38", default-features = false }
+sel4-externally-shared = { path = "../../rust-sel4/crates/sel4-externally-shared", features = ["unstable"] }
+sel4-microkit = { path = "../../rust-sel4/crates/sel4-microkit", default-features = false }

@@ -1,0 +1,10 @@
+[package]
+name = "wasmi-interpreter"
+version = "0.1.0"
+edition = "2021"
+license = "BSD-2-Clause"
+
+[dependencies]
+wasmi = { version = "0.32", default-features = false }
+sel4-externally-shared = { path = "../../rust-sel4/crates/sel4-externally-shared", features = ["unstable"] }
+sel4-microkit = { path = "../../rust-sel4/crates/sel4-microkit", default-features = false }
